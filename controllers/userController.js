@@ -72,8 +72,8 @@ class UserController{
              //const user=await UserModel.findOne({email:email})
               const token=Jwt.sign({userID:user._id},
               process.env.JWT_SECRET_KEY,{expiresIn:"5d"})
-
-            res.send({"status":"success","message":"login success","token":token})
+              const data = await UserModel.findById(user._id).select('-password')
+              res.send({"status":"success","message":"login success","token":token,"data":data})
 
           }
           else{
