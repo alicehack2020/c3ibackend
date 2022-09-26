@@ -1,14 +1,15 @@
 import CourseModel from "../model/Course.js";
  
 
- class CourseController{
+class CourseController{
 
-
-//  static  LoadCourseList=async(req,res)=>{
-       
-// }
+ static  LoadCourseList=async(req,res)=>{
+   const data=await CourseModel.find() 
+   res.send({"status":"success","data":data})
+}
 
 static addCourse=async(req,res)=>{
+
   const {name,description}=req.body;
   if(name&&description)
   {
@@ -32,9 +33,11 @@ static addCourse=async(req,res)=>{
   }
 }
 
-// static deleteCourse=async(req,res)=>{
 
-// }
+static addContent=async(req,res)=>{
+
+}
+
 
  }
 
