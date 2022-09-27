@@ -151,6 +151,19 @@ class UserController{
       }
     }
 
+    static deleteUser=async(req,res)=>{
+      const {user_Id}=req.body;
+      const data=await UserModel.deleteOne({_id:user_Id})
+      if(data)
+      {
+        res.send({"status":"success","message":"deleted successfully","data":data})
+      }
+      else{
+        res.send({"staus":"failed","message":"Not able to delete"})
+      }
+    
+    }
+
     
 }
 

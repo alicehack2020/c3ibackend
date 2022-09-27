@@ -9,6 +9,8 @@ router.post('/register',UserController.userRegistration);
 router.post('/login',UserController.userLogin);
 router.post('/details',UserController.userDetails);
 
+//delete user
+router.delete('/deleteUser',UserController.deleteUser);
 
 //load list
 router.get('/studentlist',UserController.studentList);

@@ -9,6 +9,10 @@ router.get('/list',CourseController.LoadCourseList);
 
 router.post('/addvideo',CourseController.addVideo);
 router.post('/videolist',CourseController.videoList);
+
+//delete course
+router.delete('/deleteCourse',CourseController.deleteCourse);
+
   
 
 export default router;
