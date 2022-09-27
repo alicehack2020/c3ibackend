@@ -7,7 +7,8 @@ const userSchema=new mongoose.Schema({
     email:{type:String,required:true,trim:true},
     password:{type:String,required:true,trim:true},
     isApprove:{type:Boolean,required:true,trim:true,default:false},
-    role:{type:String,required:true,trim:true,default:"student"}
+    role:{type:String,required:true,trim:true,default:"student"},
+    courses : [{type: String}]
 })
 
 //Model

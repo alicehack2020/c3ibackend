@@ -119,6 +119,38 @@ class UserController{
     }
 
 
+    //addcourse in user
+
+    static addCourseInUser=async(req,res)=>
+    { 
+        const {user_id,course_id}=req.body;
+         const data=await UserModel.updateOne({"_id":user_id},{$set:{"courses":course_id}})
+        console.log(course_id)
+        if(data)
+        {
+          console.log(data)
+          res.send({"message":"Course Enrollment Completed"}) 
+        }
+        else{
+          res.send({"staus":"failed","message":"something went wrong"})  
+        }
+    }
+
+
+
+     //user Details
+     static userDetails=async(req,res)=>{
+      const {user_id}=req.body;
+      const data=await UserModel.find({"_id":user_id})
+      if(data)
+      {
+          res.send({"message":"success","data":data})
+      }
+      else{
+        res.send({"message":"no data found"})
+      }
+    }
+
     
 }
 
