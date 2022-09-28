@@ -24,7 +24,7 @@ static addCourse=async(req,res)=>{
         res.send({"status":"success","message":"course added successfully"})
        } 
        catch (error) {
-        res.send({"status":"failed","message":"something went wrong"})
+        res.send({"status":"failed","message":"something went wrong"+error,"error":error})
        }
 
   }
