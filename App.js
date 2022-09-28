@@ -21,6 +21,9 @@ connectDb(database_url)
 app.use(express.json())
 
 //load routes
+app.get("/",(req,res)=>{
+   res.send("<h2>welcome to c3ihub</h2>")
+})
 app.use('/api/user',userRoutes)
 app.use('/api/course',courseRoutes)
 
