@@ -124,8 +124,11 @@ class UserController{
     static addCourseInUser=async(req,res)=>
     { 
         const {user_id,course_id}=req.body;
-         const data=await UserModel.updateOne({"_id":user_id},{$set:{"courses":course_id}})
-        console.log(course_id)
+
+        const userDetail=await UserModel.find({"_id":user_id})
+        var {courses}=userDetail[0];
+        courses.push(course_id)
+        const data=await UserModel.updateOne({"_id":user_id},{$set:{"courses":courses}})
         if(data)
         {
           console.log(data)
